@@ -1,0 +1,70 @@
+{
+  "ArtifactName": "dvwa-app",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "OS": {
+      "Family": "debian",
+      "Name": "11.7"
+    },
+    "Architecture": "amd64",
+    "Created": "2025-04-05T10:00:00Z"
+  },
+  "Results": [
+    {
+      "Target": "php:7.4-apache",
+      "Class": "os-pkgs",
+      "Type": "debian",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2023-1234",
+          "PkgName": "php-common",
+          "InstalledVersion": "2:7.4+93",
+          "FixedVersion": "Not fixed",
+          "Severity": "HIGH",
+          "Title": "Integer overflow in PHP session deserializer",
+          "Description": "A vulnerability was found in PHP where the session deserializer could allow integer overflow leading to memory corruption.",
+          "References": [
+            "https://security-tracker.debian.org/tracker/CVE-2023-1234 "
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2022-31167",
+          "PkgName": "libpng1.6-16",
+          "InstalledVersion": "1.6.37-1",
+          "FixedVersion": "Not fixed",
+          "Severity": "MEDIUM",
+          "Title": "Potential denial of service via crafted PNG file",
+          "Description": "A crafted PNG image could trigger excessive CPU or memory consumption.",
+          "References": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-31167 "
+          ]
+        }
+      ]
+    },
+    {
+      "Target": "Dockerfile",
+      "Class": "config",
+      "Type": "dockerfile",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CWE-113",
+          "Severity": "MEDIUM",
+          "Title": "Docker Image Runs as Root",
+          "Description": "The container runs as root user which might increase the risk if the container is compromised.",
+          "References": [
+            "https://docs.docker.com/develop/dev-best-practices/ "
+          ]
+        },
+        {
+          "VulnerabilityID": "CWE-506",
+          "Severity": "LOW",
+          "Title": "Base Image Uses Latest Tag",
+          "Description": "Using 'latest' tag for base image can lead to unexpected updates and vulnerabilities.",
+          "References": [
+            "https://snyk.io/blog/why-you-shouldnt-use-the-latest-tag-for-docker-images/ "
+          ]
+        }
+      ]
+    }
+  ]
+}
