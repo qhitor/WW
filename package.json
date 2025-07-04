@@ -1,0 +1,44 @@
+{
+  "name": "practica",
+  "version": "1.0.0",
+  "description": "Damn Vulnerable Web Application (DVWA) is a PHP/MariaDB web application that is damn vulnerable. Its main goal is to be an aid for security professionals to test their skills and tools in a legal environment, help web developers better understand the processes of securing web applications and to aid both students & teachers to learn about web application security in a controlled class room environment.",
+  "homepage": "https://github.com/qhitor/practica#readme",
+  "bugs": {
+    "url": "https://github.com/qhitor/practica/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qhitor/practica.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "eslint": "^9.30.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ],
+    "*.css": [
+      "stylelint --fix"
+    ]
+  }
+}

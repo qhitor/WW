@@ -1,0 +1,44 @@
+repos:
+  - repo: https://github.com/prettier/prettier.git
+    rev: main
+    hooks:
+      - id: prettier
+        types_or: [php, javascript, json, yaml, css, html]
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.1.0
+    hooks:
+      - id: flake8
+        name: "flake8 (Python linter)"
+        files: \.py$
+        types: [file]
+
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.29.1
+    hooks:
+      - id: yamllint
+        name: "YAML Lint"
+        types: [yaml]
+
+  - repo: https://github.com/squizlabs/PHP_CodeSniffer
+    rev: 3.7.2
+    hooks:
+      - id: phpcs
+        name: "PHP Code Sniffer"
+        args: [--standard=PSR12]
+        types: [php]
+
+  - repo: https://github.com/FriendsOfPHP/PHP-CS-Fixer
+    rev: v3.45.0
+    hooks:
+      - id: php-cs-fixer
+        name: "PHP CS Fixer"
+        args: [--config=.php-cs-fixer.php]
+        types: [php]
+
+  - repo: https://github.com/shellspec/pre-commit-hooks
+    rev: v0.0.1
+    hooks:
+      - id: shellcheck
+        name: "ShellCheck"
+        types: [bash, shell]

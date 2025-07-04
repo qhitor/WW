@@ -1,0 +1,27 @@
+name: Security Analysis Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  security-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          npm install retire semgrep
+      - name: SCA Scan
+        run: retire --input packages.json
+      - name: SAST Scan
+        run: semgrep --config config/semgrep.yaml
+      - name: Build Docker Image
+        run: docker build -t dvwa-app .
+      - name: Container Scan
+        run: trivy image dvwa-app
+      - name: DAST Scan
+        run: zap-baseline.py -t http://dvwa-app:8080 -g tests/zap_baseline.xml
+      - name: Generate Report
+        run: generate-report.sh

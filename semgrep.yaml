@@ -1,0 +1,5 @@
+rules:
+  - id: sql-injection
+    pattern: mysql_query($query)
+    message: "Potential SQL injection vulnerability detected."
+    languages: [php]

@@ -1,0 +1,23 @@
+name: Windows Security Scan
+on: [push]
+
+jobs:
+  security:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.13"
+
+      - name: Run Semgrep
+        run: |
+          pip install semgrep
+          semgrep --config p/security-audit --json -o reports/semgrep.json
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-reports
+          path: reports/

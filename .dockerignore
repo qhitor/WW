@@ -1,0 +1,56 @@
+# ---------------------
+# Исключаем локальные и служебные файлы
+# ---------------------
+.git
+.gitignore
+.dockerignore
+*.md
+.env
+.env.local
+README.md
+LICENSE
+
+# ---------------------
+# Исключаем файлы разработки и инструментов
+# ---------------------
+node_modules/
+package.json
+package-lock.json
+npm-debug.log
+yarn-error.log
+
+# ---------------------
+# Исключаем временные и кэшированные файлы
+# ---------------------
+logs/
+tmp/
+temp/
+cache/
+sessions/
+
+# ---------------------
+# Исключаем IDE-specific файлы
+# ---------------------
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# ---------------------
+# Исключаем тестовые и CI/CD файлы (если не нужны в контейнере)
+# ---------------------
+Dockerfile
+.docker
+.github/
+.gitlab-ci.yml
+.travis.yml
+Jenkinsfile
+
+# ---------------------
+# Исключаем сторонние инструменты анализа (если они есть)
+# ---------------------
+reports/
+scan-results/
+coverage/
